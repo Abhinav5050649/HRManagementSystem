@@ -9,6 +9,9 @@ app.use(express.json())
 app.use(cors())
 
 //Add routes definition
+app.use(`/api/auth`, require('./routes/auth'))
+app.use('/api/admin', require('./routes/admin'))
+app.use('/api/user', require('./routes/user'))
 
 app.get(`/`, (req, res) => {
     res.send(`Testing`)
