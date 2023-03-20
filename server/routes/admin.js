@@ -27,7 +27,7 @@ router.put("/updateuserdets", fetchUser, async(req, res) => {
             if (!userData)  res.status(404).send("Not Found")
             else 
             {
-                var {name, dob, salary, address, position, startDate, dateOfHiring, employeeStatus} = req.body
+                var {name, dob, salary, address, position, startDate, dateOfHiring, employeeOrNot} = req.body
                 const newData = {}
                 if (name) newData["name"] = name 
                 if (dob) newData["dob"] = dob
@@ -36,7 +36,7 @@ router.put("/updateuserdets", fetchUser, async(req, res) => {
                 if  (position)  newData["position"] = position
                 if (startDate)  newData["startDate"] = startDate
                 if (dateOfHiring)   newData["dateOfHiring"] = dateOfHiring
-                if (employeeStatus) newData["employeeOrNot"] = employeeStatus
+                if (employeeStatus) newData["employeeOrNot"] = employeeOrNot
                 
                 const Sser = User.findOneAndUpdate(
                     {_id: userData._id},
